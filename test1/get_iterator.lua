@@ -6,8 +6,8 @@ local iterator = {}
 
 
 local data = {
-    training = csv.load("train.csv"),
-    test =  csv.load("test.csv"),
+    training = csv.load("data/train.csv"),
+    test =  csv.load("data/test.csv"),
 }
 
 
