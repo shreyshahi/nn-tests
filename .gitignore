@@ -1,3 +1,7 @@
+# data and results
+*.csv
+*.torch
+
 # Compiled Lua sources
 luac.out
 
