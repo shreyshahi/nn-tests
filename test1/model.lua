@@ -6,9 +6,9 @@ iterator = require "get_iterator"
 our_hooks = require "get_hooks"
 
 
-depths = torch.range(1, 10):int()
+depths = torch.range(1, 8):int()
 nonlinearities = {"Sigmoid", "ReLU"}
-dropout_probs = {0, 0.5}
+dropout_probs = {0, 0.1, 0.2}
 learning_rates = {0.001, 0.01, 0.1}
 
 training_out = io.open("results/training_data.csv", "w")
@@ -38,7 +38,7 @@ for i, depth in pairs(depths:totable()) do
                     iterator=data,
                     criterion=criterion,
                     lr=learning_rate,
-                    maxepoch=150
+                    maxepoch=100
                 }
             end
         end

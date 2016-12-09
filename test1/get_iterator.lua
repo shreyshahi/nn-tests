@@ -27,13 +27,17 @@ end
 
 
 iterator.get_train_data = function()
-    return tnt.DatasetIterator{
-        dataset = tnt.BatchDataset{
-            batchsize = 50,
-            dataset = tnt.ShuffleDataset{
-                dataset = get_dataset("training")
+    return tnt.ParallelDatasetIterator{
+        nthread = 10,
+        init = function() require "torchnet" end,
+        closure = function()
+            return tnt.BatchDataset{
+                batchsize = 50,
+                dataset = tnt.ShuffleDataset{
+                    dataset = get_dataset("training")
+                }
             }
-        }
+        end
     }
 end
 
