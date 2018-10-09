@@ -4,6 +4,7 @@
 
 # Images
 *.png
+*.bmp
 
 # Compiled Lua sources
 luac.out
